@@ -14,8 +14,12 @@ public class User {
     private String username;
     private String password;
     private String role;
-
+    private String email;
+    
     public User() {}
+   
+    public String getEmail() { return email; }
+    public void setEmail(String email) { this.email = email; }
     
     // Getter & Setter
     public String getUsername() {

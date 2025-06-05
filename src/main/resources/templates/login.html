@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | Blade N Fade</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gradient-to-r from-gray-900 to-gray-800 h-screen flex items-center justify-center">
+
+    <div class="bg-white rounded-lg shadow-lg p-8 w-full max-w-sm">
+        <div class="flex flex-col items-center">
+            <div class="text-3xl mb-2">✂️</div>
+            <h1 class="text-xl font-bold text-gray-900">BLADE N FADE</h1>
+            <p class="text-sm text-gray-500 mb-6">Premium Barbershop Experience</p>
+        </div>
+
+        <form th:action="@{/login}" method="post">
+            <div class="mb-4">
+                <label for="username" class="block text-gray-700 text-sm font-semibold mb-2">
+                    <i class="fas fa-user mr-2"></i>Username
+                </label>
+                <input type="text" id="username" name="username"
+                       class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                       required>
+            </div>
+
+            <div class="mb-6">
+                <label for="password" class="block text-gray-700 text-sm font-semibold mb-2">
+                    <i class="fas fa-lock mr-2"></i>Password
+                </label>
+                <input type="password" id="password" name="password"
+                       class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                       required>
+            </div>
+
+            <button type="submit"
+                    class="w-full bg-gray-800 text-white font-semibold py-2 px-4 rounded-lg hover:bg-gray-700 flex justify-center items-center gap-2">
+                <i class="fas fa-sign-in-alt"></i> Login
+            </button>
+        </form>
+
+        <div class="mt-4 text-center">
+            <span class="text-sm text-gray-600">Belum punya akun?</span>
+            <a th:href="@{/register}" class="text-blue-600 hover:underline font-semibold ml-1">Register</a>
+        </div>
+    </div>
+
+    <!-- Font Awesome for icons -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</body>
+</html>
