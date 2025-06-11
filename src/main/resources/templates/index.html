@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blade N Fade - Barber Shop</title>
+    <link rel="stylesheet" href="/css/index.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-left">
+                <a href="#service">Service</a>
+                <a href="#about">About</a>
+                <a href="#contact">Contact</a>
+                <a href="#book">Book</a>
+            </div>
+            <div class="nav-center">
+                <div class="logo">
+                    <div class="logo-circle">
+                        <!-- Logo placeholder - akan diisi kemudian -->
+                    </div>
+                </div>
+            </div>
+            <div class="nav-right">
+                <a href="#register">Register</a>
+                <a href="#login">Login</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content fade-in">
+            <div class="hero-image">
+                <div class="slideshow-container">
+                    <div class="slide active">
+                        <div class="image-placeholder slide-1">
+                            <img src="/images/frame14.png" alt="apa atuh" class="omgs1">
+                        </div>
+                    </div>
+                    <div class="slide">
+                        <div class="image-placeholder slide-2">
+                            <img src="/images/frame15.png" alt="apa atuh" class="omgs2">
+                        </div>
+                    </div>
+                    <div class="slide">
+                        <div class="image-placeholder slide-3">
+                            <img src="/images/frame16.png" alt="apa atuh" class="omgs3">
+                        </div>
+                    </div>
+                    <div class="slide">
+                        <div class="image-placeholder slide-4">
+                            <img src="/images/frame17.png" alt="apa atuh" class="omgs4">
+                        </div>
+                    </div>
+                    <!-- Slide indicators -->
+                    <div class="slide-indicators">
+                        <span class="indicator active" data-slide="0"></span>
+                        <span class="indicator" data-slide="1"></span>
+                        <span class="indicator" data-slide="2"></span>
+                        <span class="indicator" data-slide="3"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-text">
+                <h1 class="slide-up">WELCOME</h1>
+                <p class="slide-up delay-1">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nisl tincidunt eget nullam non. Quis hendrerit dolor nam. Maecenas sed enim ut sem viverra aliquet eget. Volutpat odio facilisis mauris sit amet massa. Commodo odio aenean sed adipiscing diam donec adipiscing tristique.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="service">
+        <h2 class="fade-in-up">SERVICE</h2>
+        <div class="services-grid">
+            <div class="service-item fade-in-up delay-1">
+                <div class="service-icon">
+                    <div class="icon-placeholder"></div>
+                </div>
+                <h3>HairCut</h3>
+            </div>
+            <div class="service-item fade-in-up delay-2">
+                <div class="service-icon">
+                    <!-- Shave icon placeholder -->
+                    <div class="icon-placeholder"></div>
+                </div>
+                <h3>Shave</h3>
+            </div>
+            <div class="service-item fade-in-up delay-3">
+                <div class="service-icon">
+                    <!-- Smoothing icon placeholder -->
+                    <div class="icon-placeholder"></div>
+                </div>
+                <h3>Smoothing</h3>
+            </div>
+            <div class="service-item fade-in-up delay-4">
+                <div class="service-icon">
+                    <!-- Coloring icon placeholder -->
+                    <div class="icon-placeholder"></div>
+                </div>
+                <h3>Colouring</h3>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="cta-content fade-in-up">
+            <div class="skull-icon scale-in">
+                <div class="icon-placeholder large"></div>
+            </div>
+            <div class="cta-text">
+                <h2 class="slide-right">BE THE BEST VERSION OF<br>YOURSELF</h2>
+                <button class="book-btn bounce-in">BOOK NOW</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="contact-container">
+            <div class="contact-info fade-in-left">
+                <div class="contact-item">
+                    <div class="contact-icon">📞</div>
+                    <div class="contact-details">
+                        <strong>085128077777</strong>
+                        <p>layanan pelanggan</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">📷</div>
+                    <div class="contact-details">
+                        <strong>@bladenfade</strong>
+                        <p>social media</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">📍</div>
+                    <div class="contact-details">
+                        <strong>Head Office</strong>
+                        <p>Jl. Sutorahayu RT 03/RW 06, Ruko Kemanggisan Residance Utara, Kebon Jeruk, Jakarta Barat, DKI Jakarta 11560</p>
+                    </div>
+                </div>
+            </div>
+            <div class="contact-form fade-in-right">
+                <form>
+                    <input type="text" placeholder="Name" required>
+                    <input type="email" placeholder="Email" required>
+                    <input type="tel" placeholder="Phone" required>
+                    <textarea placeholder="Message" rows="5" required></textarea>
+                    <button type="submit">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>Copyrights © 2025 All Rights Reserved by Blade N Fade</p>
+    </footer>
+
+    <script>
+        // Slideshow functionality
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const indicators = document.querySelectorAll('.indicator');
+        const totalSlides = slides.length;
+
+        function showSlide(index) {
+            // Remove active class from all slides and indicators
+            slides.forEach(slide => slide.classList.remove('active'));
+            indicators.forEach(indicator => indicator.classList.remove('active'));
+            
+            // Add active class to current slide and indicator
+            slides[index].classList.add('active');
+            indicators[index].classList.add('active');
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            showSlide(currentSlide);
+        }
+
+        // Auto slideshow - change every 4 seconds
+        setInterval(nextSlide, 4000);
+
+        // Click indicator to change slide
+        indicators.forEach((indicator, index) => {
+            indicator.addEventListener('click', () => {
+                currentSlide = index;
+                showSlide(currentSlide);
+            });
+        });
+
+        // Scroll animations
+        function isElementInViewport(el) {
+            const rect = el.getBoundingClientRect();
+            return (
+                rect.top >= 0 &&
+                rect.left >= 0 &&
+                rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+                rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+            );
+        }
+
+        function isElementPartiallyInViewport(el) {
+            const rect = el.getBoundingClientRect();
+            return (
+                rect.top < (window.innerHeight || document.documentElement.clientHeight) &&
+                rect.bottom >= 0
+            );
+        }
+
+        function handleScrollAnimations() {
+            const animatedElements = document.querySelectorAll('.fade-in, .fade-in-up, .fade-in-left, .fade-in-right, .slide-up, .slide-right, .scale-in, .bounce-in');
+            
+            animatedElements.forEach(element => {
+                if (isElementPartiallyInViewport(element)) {
+                    element.classList.add('animate');
+                }
+            });
+        }
+
+        // Run animation check on scroll
+        window.addEventListener('scroll', handleScrollAnimations);
+        
+        // Run animation check on page load
+        window.addEventListener('load', handleScrollAnimations);
+        
+        // Run animation check initially
+        handleScrollAnimations();
+    </script>
+</body>
+</html>

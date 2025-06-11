@@ -1,20 +1,22 @@
 package com.barbershop.barbershop.controller;
 
+import com.barbershop.barbershop.model.User;
+import com.barbershop.barbershop.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-
-import com.barbershop.barbershop.model.User;
-import com.barbershop.barbershop.service.UserService;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class AuthController {
 
     @Autowired
     private UserService userService;
+
+    @GetMapping("/login")
+    public String showLoginForm() {
+        return "login";
+    }   
 
     @GetMapping("/register")
     public String showRegisterForm(Model model) {
@@ -24,24 +26,19 @@ public class AuthController {
 
     @PostMapping("/register")
     public String registerUser(@ModelAttribute("user") User user, Model model) {
-        try {
-            user.setRole("USER");
-            userService.saveUser(user);
-            return "redirect:/login"; // redirect setelah register berhasil
-        } catch (Exception e) {
-            model.addAttribute("error", "Registrasi gagal: " + e.getMessage());
+        if (userService.isUsernameTaken(user.getUsername())) {
+            model.addAttribute("error", "Username sudah digunakan!");
             return "register";
         }
+
+        user.setRole(User.Role.USER);
+        userService.registerUser(user);
+        return "redirect:/login";
     }
 
-
-    @GetMapping("/login")
-    public String loginPage() {
-        return "login";
+    @GetMapping("/index")
+    public String showIndex() {
+        return "index"; // templates/index.html
     }
 
-    @GetMapping("/")
-    public String home() {
-        return "home"; 
-    }
 }
