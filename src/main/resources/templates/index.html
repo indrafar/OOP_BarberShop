@@ -5,6 +5,63 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blade N Fade - Barber Shop</title>
     <link rel="stylesheet" href="/css/index.css">
+    <style>
+        .profile-container {
+            position: relative;
+            margin-left: auto;
+        }
+
+        .profile-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .profile-btn img {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .profile-dropdown {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            min-width: 200px;
+            display: none;
+            z-index: 1000;
+        }
+
+        .profile-dropdown.active {
+            display: block;
+        }
+
+        .profile-dropdown a {
+            display: block;
+            padding: 12px 16px;
+            color: #333;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+
+        .profile-dropdown a:hover {
+            background-color: #f5f5f5;
+        }
+
+        .profile-dropdown .divider {
+            height: 1px;
+            background-color: #eee;
+            margin: 4px 0;
+        }
+    </style>
 </head>
 <body>
     <!-- Navigation -->
@@ -18,56 +75,40 @@
             </div>
             <div class="nav-center">
                 <div class="logo">
-                    <div class="logo-circle">
-                        <!-- Logo placeholder - akan diisi kemudian -->
-                    </div>
+                    <img src="/images/skull1.png" alt="Blade N Fade Logo" class="logo-image">
                 </div>
             </div>
-            <div class="nav-right">
-                <a href="#register">Register</a>
-                <a href="#login">Login</a>
+            <div class="profile-container">
+                <button class="profile-btn">
+                    <img src="/images/frame15.png" alt="Profile">
+                </button>
+                <div class="profile-dropdown">
+                    <a href="/profile">My Profile</a>
+                    <a href="/appointments">My Appointments</a>
+                    <div class="divider"></div>
+                    <a href="/settings">Settings</a>
+                    <a href="/logout">Logout</a>
+                </div>
             </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
     <section class="hero">
-        <div class="hero-content fade-in">
-            <div class="hero-image">
-                <div class="slideshow-container">
-                    <div class="slide active">
-                        <div class="image-placeholder slide-1">
-                            <img src="/images/frame14.png" alt="apa atuh" class="omgs1">
-                        </div>
-                    </div>
-                    <div class="slide">
-                        <div class="image-placeholder slide-2">
-                            <img src="/images/frame15.png" alt="apa atuh" class="omgs2">
-                        </div>
-                    </div>
-                    <div class="slide">
-                        <div class="image-placeholder slide-3">
-                            <img src="/images/frame16.png" alt="apa atuh" class="omgs3">
-                        </div>
-                    </div>
-                    <div class="slide">
-                        <div class="image-placeholder slide-4">
-                            <img src="/images/frame17.png" alt="apa atuh" class="omgs4">
-                        </div>
-                    </div>
-                    <!-- Slide indicators -->
-                    <div class="slide-indicators">
-                        <span class="indicator active" data-slide="0"></span>
-                        <span class="indicator" data-slide="1"></span>
-                        <span class="indicator" data-slide="2"></span>
-                        <span class="indicator" data-slide="3"></span>
-                    </div>
-                </div>
-            </div>
-            <div class="hero-text">
-                <h1 class="slide-up">WELCOME</h1>
-                <p class="slide-up delay-1">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nisl tincidunt eget nullam non. Quis hendrerit dolor nam. Maecenas sed enim ut sem viverra aliquet eget. Volutpat odio facilisis mauris sit amet massa. Commodo odio aenean sed adipiscing diam donec adipiscing tristique.</p>
-            </div>
+        <div class="hero-image-container-fixed">
+            <img src="/images/Rectangle 2.png" alt="Skull Left" class="skull-side-fixed left">
+            <img src="/images/barber.jpg" alt="Barber Shop" class="main-hero-img-fixed">
+            <img src="/images/Rectangle 3.png" alt="Skull Right" class="skull-side-fixed right">
+        </div>
+        <div class="hero-dots">
+            <span class="dot active"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+        </div>
+        <div class="hero-text">
+            <h1>WELCOME</h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nisl tincidunt eget nullam non. Quis hendrerit dolor magna eget est lorem ipsum dolor sit. Volutpat odio facilisis mauris sit amet massa. Commodo odio aenean sed adipiscing diam donec adipiscing tristique.</p>
         </div>
     </section>
 
@@ -77,43 +118,40 @@
         <div class="services-grid">
             <div class="service-item fade-in-up delay-1">
                 <div class="service-icon">
-                    <div class="icon-placeholder"></div>
+                    <img src="/images/image 18 (Traced).png" alt="HairCut" class="service-img">
                 </div>
-                <h3>HairCut</h3>
+                <h3 class="service-script">HairCut</h3>
             </div>
             <div class="service-item fade-in-up delay-2">
                 <div class="service-icon">
-                    <!-- Shave icon placeholder -->
-                    <div class="icon-placeholder"></div>
+                    <img src="/images/image 17(Traced).png" alt="Shave" class="service-img">
                 </div>
-                <h3>Shave</h3>
+                <h3 class="service-script">Shave</h3>
             </div>
             <div class="service-item fade-in-up delay-3">
                 <div class="service-icon">
-                    <!-- Smoothing icon placeholder -->
-                    <div class="icon-placeholder"></div>
+                    <img src="/images/Group 5.png" alt="Smoothing" class="service-img">
                 </div>
-                <h3>Smoothing</h3>
+                <h3 class="service-script">Smoothing</h3>
             </div>
             <div class="service-item fade-in-up delay-4">
                 <div class="service-icon">
-                    <!-- Coloring icon placeholder -->
-                    <div class="icon-placeholder"></div>
+                    <img src="/images/Group 8.png" alt="Colouring" class="service-img">
                 </div>
-                <h3>Colouring</h3>
+                <h3 class="service-script">Colouring</h3>
             </div>
         </div>
     </section>
 
     <!-- CTA Section -->
     <section class="cta">
-        <div class="cta-content fade-in-up">
-            <div class="skull-icon scale-in">
-                <div class="icon-placeholder large"></div>
+        <div class="cta-content-fixed">
+            <div class="cta-skull">
+                <img src="/images/frame16.png" alt="Skull Icon" class="cta-skull-img">
             </div>
-            <div class="cta-text">
-                <h2 class="slide-right">BE THE BEST VERSION OF<br>YOURSELF</h2>
-                <button class="book-btn bounce-in">BOOK NOW</button>
+            <div class="cta-right">
+                <div class="cta-text-fixed">BE THE BEST VERSION OF<br>YOURSELF</div>
+                <a href="/booking" class="book-btn-fixed" style="text-decoration:none;display:inline-block;">BOOK NOW</a>
             </div>
         </div>
     </section>
@@ -162,36 +200,19 @@
     </footer>
 
     <script>
-        // Slideshow functionality
-        let currentSlide = 0;
-        const slides = document.querySelectorAll('.slide');
-        const indicators = document.querySelectorAll('.indicator');
-        const totalSlides = slides.length;
+        // Profile dropdown functionality
+        const profileBtn = document.querySelector('.profile-btn');
+        const profileDropdown = document.querySelector('.profile-dropdown');
 
-        function showSlide(index) {
-            // Remove active class from all slides and indicators
-            slides.forEach(slide => slide.classList.remove('active'));
-            indicators.forEach(indicator => indicator.classList.remove('active'));
-            
-            // Add active class to current slide and indicator
-            slides[index].classList.add('active');
-            indicators[index].classList.add('active');
-        }
+        profileBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            profileDropdown.classList.toggle('active');
+        });
 
-        function nextSlide() {
-            currentSlide = (currentSlide + 1) % totalSlides;
-            showSlide(currentSlide);
-        }
-
-        // Auto slideshow - change every 4 seconds
-        setInterval(nextSlide, 4000);
-
-        // Click indicator to change slide
-        indicators.forEach((indicator, index) => {
-            indicator.addEventListener('click', () => {
-                currentSlide = index;
-                showSlide(currentSlide);
-            });
+        document.addEventListener('click', (e) => {
+            if (!profileBtn.contains(e.target) && !profileDropdown.contains(e.target)) {
+                profileDropdown.classList.remove('active');
+            }
         });
 
         // Scroll animations

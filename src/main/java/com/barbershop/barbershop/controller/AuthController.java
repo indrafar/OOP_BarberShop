@@ -14,7 +14,10 @@ public class AuthController {
     private UserService userService;
 
     @GetMapping("/login")
-    public String showLoginForm() {
+    public String showLoginForm(@RequestParam(required = false) String error, Model model) {
+        if (error != null) {
+            model.addAttribute("error", "Invalid username or password");
+        }
         return "login";
     }   
 
@@ -33,7 +36,7 @@ public class AuthController {
 
         user.setRole(User.Role.USER);
         userService.registerUser(user);
-        return "redirect:/login";
+        return "redirect:/login?registered=true";
     }
 
     @GetMapping("/index")
