@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Booking - Blade N Fade</title>
+    <link rel="stylesheet" href="/css/index.css">
+    <style>
+        body {
+            background: #18171a;
+        }
+        .booking-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            max-width: 1200px;
+            margin: 60px auto;
+        }
+        .booking-card {
+            background: #18171a;
+            border: 3px solid #fff;
+            border-radius: 28px;
+            display: flex;
+            flex-direction: row;
+            align-items: stretch;
+            min-height: 260px;
+            overflow: hidden;
+            box-shadow: 0 0 0 0 #000;
+        }
+        .booking-skull {
+            background: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 38%;
+            min-width: 180px;
+            border-right: 2px solid #fff;
+        }
+        .booking-skull img {
+            width: 110px;
+            height: auto;
+            display: block;
+        }
+        .booking-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 32px 24px 24px 24px;
+        }
+        .booking-name {
+            font-size: 24px;
+            font-weight: bold;
+            color: #fff;
+            margin-bottom: 8px;
+        }
+        .booking-choose {
+            font-size: 16px;
+            color: #fff;
+            margin-bottom: 18px;
+        }
+        .booking-services {
+            display: flex;
+            gap: 32px;
+            margin-bottom: 18px;
+        }
+        .booking-service {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4px;
+        }
+        .booking-service img {
+            width: 48px;
+            height: 48px;
+            object-fit: contain;
+            filter: brightness(0) invert(1);
+        }
+        .booking-service label {
+            color: #fff;
+            font-family: 'Brush Script MT', cursive, 'Pacifico', 'Dancing Script', 'Arial', sans-serif;
+            font-size: 20px;
+            font-style: italic;
+            margin-top: 2px;
+        }
+        .booking-service input[type="checkbox"] {
+            margin-top: 4px;
+            accent-color: #fff;
+            width: 18px;
+            height: 18px;
+        }
+        .booking-next-btn {
+            background: #b3b3b3;
+            color: #fff;
+            border: none;
+            padding: 8px 36px;
+            font-size: 20px;
+            font-family: 'Brush Script MT', cursive, 'Pacifico', 'Dancing Script', 'Arial', sans-serif;
+            font-style: italic;
+            border-radius: 16px;
+            cursor: pointer;
+            font-weight: bold;
+            box-shadow: none;
+            transition: background 0.3s, color 0.3s, transform 0.2s;
+            outline: none;
+            margin-top: 8px;
+        }
+        .booking-next-btn:hover {
+            background: #888;
+            color: #fff;
+            transform: translateY(-2px) scale(1.03);
+        }
+        @media (max-width: 900px) {
+            .booking-container {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+            .booking-skull {
+                min-width: 100px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="booking-container">
+        <!-- Card 1 -->
+        <div class="booking-card">
+            <div class="booking-skull">
+                <img src="/images/frame16.png" alt="Skull">
+            </div>
+            <div class="booking-content">
+                <div class="booking-name">Indra Farhan</div>
+                <div class="booking-choose">Choose Service</div>
+                <div class="booking-services">
+                    <div class="booking-service">
+                        <img src="/images/image 18 (Traced).png" alt="HairCut">
+                        <label>HairCut</label>
+                        <input type="checkbox">
+                    </div>
+                    <div class="booking-service">
+                        <img src="/images/image 17(Traced).png" alt="Shave">
+                        <label>Shave</label>
+                        <input type="checkbox">
+                    </div>
+                </div>
+                <a href="/appointment" class="booking-next-btn" style="text-decoration:none;display:inline-block;">NEXT</a>
+            </div>
+        </div>
+        <!-- Card 2 -->
+        <div class="booking-card">
+            <div class="booking-skull">
+                <img src="/images/frame16.png" alt="Skull">
+            </div>
+            <div class="booking-content">
+                <div class="booking-name">Raffle Alghifari</div>
+                <div class="booking-choose">Choose Service</div>
+                <div class="booking-services">
+                    <div class="booking-service">
+                        <img src="/images/image 18 (Traced).png" alt="HairCut">
+                        <label>HairCut</label>
+                        <input type="checkbox">
+                    </div>
+                    <div class="booking-service">
+                        <img src="/images/Group 5.png" alt="Smoothing">
+                        <label>Smoothing</label>
+                        <input type="checkbox">
+                    </div>
+                </div>
+                <a href="/appointment" class="booking-next-btn" style="text-decoration:none;display:inline-block;">NEXT</a>
+            </div>
+        </div>
+        <!-- Card 3 -->
+        <div class="booking-card">
+            <div class="booking-skull">
+                <img src="/images/frame16.png" alt="Skull">
+            </div>
+            <div class="booking-content">
+                <div class="booking-name">Indra Farhan</div>
+                <div class="booking-choose">Choose Service</div>
+                <div class="booking-services">
+                    <div class="booking-service">
+                        <img src="/images/image 18 (Traced).png" alt="HairCut">
+                        <label>HairCut</label>
+                        <input type="checkbox">
+                    </div>
+                    <div class="booking-service">
+                        <img src="/images/image 17(Traced).png" alt="Shave">
+                        <label>Shave</label>
+                        <input type="checkbox">
+                    </div>
+                </div>
+                <a href="/appointment" class="booking-next-btn" style="text-decoration:none;display:inline-block;">NEXT</a>
+            </div>
+        </div>
+        <!-- Card 4 -->
+        <div class="booking-card">
+            <div class="booking-skull">
+                <img src="/images/frame16.png" alt="Skull">
+            </div>
+            <div class="booking-content">
+                <div class="booking-name">Atengkorak</div>
+                <div class="booking-choose">Choose Service</div>
+                <div class="booking-services">
+                    <div class="booking-service">
+                        <img src="/images/image 18 (Traced).png" alt="HairCut">
+                        <label>HairCut</label>
+                        <input type="checkbox">
+                    </div>
+                    <div class="booking-service">
+                        <img src="/images/Group 8.png" alt="Colouring">
+                        <label>Colouring</label>
+                        <input type="checkbox">
+                    </div>
+                </div>
+                <a href="/appointment" class="booking-next-btn" style="text-decoration:none;display:inline-block;">NEXT</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html> 

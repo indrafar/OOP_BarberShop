@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Register - Blade & Fade</title>
+    <link rel="stylesheet" th:href="@{/css/register.css}">
+</head>
+<body>
+<div class="container">
+    
+    <div th:if="${error}" class="error-message">
+        <p th:text="${error}"></p>
+    </div>
+
+    <form class="register-box" th:action="@{/register}" th:object="${user}" method="post">
+        
+        <input type="text" th:field="*{username}" placeholder="Username" required>
+        
+        <input type="email" th:field="*{email}" placeholder="Email" required>
+        
+        <input type="text" th:field="*{phoneNumber}" placeholder="Phone Number" required>
+        
+        <input type="password" th:field="*{password}" placeholder="Password" required>
+        
+        <input type="password" name="confirmPassword" placeholder="Confirm Password" required>
+
+        <button type="submit" class="confirm-btn">Confirm</button>
+
+        <p class="login-text">
+            Already a member? <a th:href="@{/login}">Login</a>
+        </p>
+    </form>
+</div>
+</body>
+</html>

@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blade N Fade - Barber Shop</title>
+    <link rel="stylesheet" href="/css/index.css">
+    <style>
+        .profile-container {
+            position: relative;
+            margin-left: auto;
+        }
+
+        .profile-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .profile-btn img {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .profile-dropdown {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            min-width: 200px;
+            display: none;
+            z-index: 1000;
+        }
+
+        .profile-dropdown.active {
+            display: block;
+        }
+
+        .profile-dropdown a {
+            display: block;
+            padding: 12px 16px;
+            color: #333;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+
+        .profile-dropdown a:hover {
+            background-color: #f5f5f5;
+        }
+
+        .profile-dropdown .divider {
+            height: 1px;
+            background-color: #eee;
+            margin: 4px 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-left">
+                <a href="#service">Service</a>
+                <a href="#about">About</a>
+                <a href="#contact">Contact</a>
+                <a href="#book">Book</a>
+            </div>
+            <div class="nav-center">
+                <div class="logo">
+                    <img src="/images/skull1.png" alt="Blade N Fade Logo" class="logo-image">
+                </div>
+            </div>
+            <div class="profile-container">
+                <button class="profile-btn">
+                    <img src="/images/frame15.png" alt="Profile">
+                </button>
+                <div class="profile-dropdown">
+                    <a href="/profile">My Profile</a>
+                    <a href="/appointments">My Appointments</a>
+                    <div class="divider"></div>
+                    <a href="/settings">Settings</a>
+                    <a href="/logout">Logout</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-image-container-fixed">
+            <img src="/images/Rectangle 2.png" alt="Skull Left" class="skull-side-fixed left">
+            <img src="/images/barber.jpg" alt="Barber Shop" class="main-hero-img-fixed">
+            <img src="/images/Rectangle 3.png" alt="Skull Right" class="skull-side-fixed right">
+        </div>
+        <div class="hero-dots">
+            <span class="dot active"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+        </div>
+        <div class="hero-text">
+            <h1>WELCOME</h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nisl tincidunt eget nullam non. Quis hendrerit dolor magna eget est lorem ipsum dolor sit. Volutpat odio facilisis mauris sit amet massa. Commodo odio aenean sed adipiscing diam donec adipiscing tristique.</p>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="service">
+        <h2 class="fade-in-up">SERVICE</h2>
+        <div class="services-grid">
+            <div class="service-item fade-in-up delay-1">
+                <div class="service-icon">
+                    <img src="/images/image 18 (Traced).png" alt="HairCut" class="service-img">
+                </div>
+                <h3 class="service-script">HairCut</h3>
+            </div>
+            <div class="service-item fade-in-up delay-2">
+                <div class="service-icon">
+                    <img src="/images/image 17(Traced).png" alt="Shave" class="service-img">
+                </div>
+                <h3 class="service-script">Shave</h3>
+            </div>
+            <div class="service-item fade-in-up delay-3">
+                <div class="service-icon">
+                    <img src="/images/Group 5.png" alt="Smoothing" class="service-img">
+                </div>
+                <h3 class="service-script">Smoothing</h3>
+            </div>
+            <div class="service-item fade-in-up delay-4">
+                <div class="service-icon">
+                    <img src="/images/Group 8.png" alt="Colouring" class="service-img">
+                </div>
+                <h3 class="service-script">Colouring</h3>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="cta-content-fixed">
+            <div class="cta-skull">
+                <img src="/images/frame16.png" alt="Skull Icon" class="cta-skull-img">
+            </div>
+            <div class="cta-right">
+                <div class="cta-text-fixed">BE THE BEST VERSION OF<br>YOURSELF</div>
+                <a href="/booking" class="book-btn-fixed" style="text-decoration:none;display:inline-block;">BOOK NOW</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="contact-container">
+            <div class="contact-info fade-in-left">
+                <div class="contact-item">
+                    <div class="contact-icon">📞</div>
+                    <div class="contact-details">
+                        <strong>085128077777</strong>
+                        <p>layanan pelanggan</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">📷</div>
+                    <div class="contact-details">
+                        <strong>@bladenfade</strong>
+                        <p>social media</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">📍</div>
+                    <div class="contact-details">
+                        <strong>Head Office</strong>
+                        <p>Jl. Sutorahayu RT 03/RW 06, Ruko Kemanggisan Residance Utara, Kebon Jeruk, Jakarta Barat, DKI Jakarta 11560</p>
+                    </div>
+                </div>
+            </div>
+            <div class="contact-form fade-in-right">
+                <form>
+                    <input type="text" placeholder="Name" required>
+                    <input type="email" placeholder="Email" required>
+                    <input type="tel" placeholder="Phone" required>
+                    <textarea placeholder="Message" rows="5" required></textarea>
+                    <button type="submit">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>Copyrights © 2025 All Rights Reserved by Blade N Fade</p>
+    </footer>
+
+    <script>
+        // Profile dropdown functionality
+        const profileBtn = document.querySelector('.profile-btn');
+        const profileDropdown = document.querySelector('.profile-dropdown');
+
+        profileBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            profileDropdown.classList.toggle('active');
+        });
+
+        document.addEventListener('click', (e) => {
+            if (!profileBtn.contains(e.target) && !profileDropdown.contains(e.target)) {
+                profileDropdown.classList.remove('active');
+            }
+        });
+
+        // Scroll animations
+        function isElementInViewport(el) {
+            const rect = el.getBoundingClientRect();
+            return (
+                rect.top >= 0 &&
+                rect.left >= 0 &&
+                rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+                rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+            );
+        }
+
+        function isElementPartiallyInViewport(el) {
+            const rect = el.getBoundingClientRect();
+            return (
+                rect.top < (window.innerHeight || document.documentElement.clientHeight) &&
+                rect.bottom >= 0
+            );
+        }
+
+        function handleScrollAnimations() {
+            const animatedElements = document.querySelectorAll('.fade-in, .fade-in-up, .fade-in-left, .fade-in-right, .slide-up, .slide-right, .scale-in, .bounce-in');
+            
+            animatedElements.forEach(element => {
+                if (isElementPartiallyInViewport(element)) {
+                    element.classList.add('animate');
+                }
+            });
+        }
+
+        // Run animation check on scroll
+        window.addEventListener('scroll', handleScrollAnimations);
+        
+        // Run animation check on page load
+        window.addEventListener('load', handleScrollAnimations);
+        
+        // Run animation check initially
+        handleScrollAnimations();
+    </script>
+</body>
+</html>
