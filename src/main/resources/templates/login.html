@@ -5,8 +5,83 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - BladeNFade Barbershop</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="/css/login.css">
+    <style>
+        body {
+            background: #111;
+            color: #fff;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .container {
+            width: 100%;
+            max-width: 400px;
+            padding: 20px;
+        }
+        .logo {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .logo img {
+            max-width: 220px;
+        }
+        .login-box {
+            background: #181818;
+            padding: 30px 30px 20px 30px;
+            border-radius: 25px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.2);
+            border: 1px solid #fff2;
+        }
+        .login-box input {
+            width: 100%;
+            padding: 14px 18px;
+            margin-bottom: 18px;
+            border: 1px solid #fff2;
+            border-radius: 25px;
+            background: #111;
+            color: #fff;
+            font-size: 20px;
+            font-family: inherit;
+        }
+        .login-box input:focus {
+            outline: none;
+            border-color: #007bff;
+            background: #181818;
+        }
+        .login-btn {
+            width: 100%;
+            padding: 12px;
+            background: #ccc;
+            color: #222;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 22px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            transition: background 0.3s;
+        }
+        .login-btn:hover {
+            background: #007bff;
+            color: #fff;
+        }
+        .register-text {
+            text-align: center;
+            margin-top: 10px;
+            color: #ccc;
+            font-size: 16px;
+        }
+        .register-text a {
+            color: #1a8cff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .register-text a:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
@@ -22,14 +97,20 @@
             Invalid username or password.
         </div>
 
+        <div th:if="${param.logout}" class="alert alert-success">
+            You have been logged out.
+        </div>
+
+        <div th:if="${success}" class="alert alert-success">
+            <span th:text="${success}">Success message</span>
+        </div>
+
         <form class="login-box" th:action="@{/login}" method="post">
-            <input type="text" name="username" placeholder="Username" required>
+            <input type="text" name="username" placeholder="Name" required>
             <input type="password" name="password" placeholder="Password" required>
-
             <button type="submit" class="login-btn">Login</button>
-
             <p class="register-text">
-                Don't have an account? <a th:href="@{/register}">Register</a>
+                don't have a'n account? <a th:href="@{/register}">Register</a>
             </p>
         </form>
     </div>

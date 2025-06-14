@@ -1,190 +1,70 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Appointment - Blade N Fade</title>
     <link rel="stylesheet" href="/css/index.css">
     <style>
-        body {
-            background: #18171a;
-        }
+        body { background: #18171a; color: #fff; }
         .appointment-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-        }
-        .appointment-card {
+            max-width: 420px;
+            margin: 60px auto;
             background: #18171a;
             border: 3px solid #fff;
-            border-radius: 22px;
-            min-width: 350px;
-            max-width: 400px;
-            padding: 32px 24px 24px 24px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+            border-radius: 28px;
+            padding: 36px 32px 32px 32px;
+            box-shadow: 0 0 0 0 #000;
         }
         .appointment-title {
-            font-size: 26px;
+            font-size: 28px;
             font-weight: bold;
+            margin-bottom: 18px;
             color: #fff;
-            margin-bottom: 24px;
-            text-align: center;
         }
-        .appointment-calendar-box {
-            background: #fff;
-            border-radius: 24px;
+        .appointment-label {
+            font-size: 18px;
+            margin-bottom: 8px;
+            color: #fff;
+        }
+        .appointment-input {
             width: 100%;
-            min-height: 140px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 28px;
+            padding: 10px 16px;
+            border-radius: 12px;
+            border: 1px solid #fff2;
+            background: #111;
+            color: #fff;
+            font-size: 18px;
+            margin-bottom: 18px;
         }
-        .appointment-calendar-text {
-            color: #18171a;
-            font-size: 24px;
-            font-weight: bold;
-            text-align: center;
-        }
-        .appointment-next-btn {
+        .appointment-btn {
             background: #b3b3b3;
             color: #fff;
             border: none;
-            padding: 10px 38px;
+            padding: 10px 36px;
             font-size: 20px;
-            font-family: 'Brush Script MT', cursive, 'Pacifico', 'Dancing Script', 'Arial', sans-serif;
-            font-style: italic;
-            border-radius: 18px;
+            border-radius: 16px;
             cursor: pointer;
             font-weight: bold;
-            box-shadow: none;
             transition: background 0.3s, color 0.3s, transform 0.2s;
             outline: none;
         }
-        .appointment-next-btn:hover {
+        .appointment-btn:hover {
             background: #888;
             color: #fff;
             transform: translateY(-2px) scale(1.03);
         }
-        .calendar-container {
-            width: 100%;
-        }
-        .calendar-header {
-            text-align: center;
-            margin-bottom: 8px;
-        }
-        .calendar-month {
-            font-size: 18px;
-            font-weight: bold;
-            color: #18171a;
-        }
-        .calendar-table {
-            width: 100%;
-            border-collapse: collapse;
-            background: transparent;
-        }
-        .calendar-table th, .calendar-table td {
-            width: 14.28%;
-            text-align: center;
-            padding: 6px 0;
-            font-size: 15px;
-            color: #18171a;
-            border-radius: 6px;
-        }
-        .calendar-table th {
-            font-weight: bold;
-            color: #888;
-            background: #f5f5f5;
-        }
-        .calendar-table td {
-            background: #fff;
-            transition: background 0.2s;
-        }
-        .calendar-table td:hover {
-            background: #e0e0e0;
-            cursor: pointer;
-        }
-        .calendar-muted {
-            color: #ccc !important;
-            background: #fff !important;
-        }
     </style>
 </head>
 <body>
-    <div class="appointment-container">
-        <div class="appointment-card">
-            <div class="appointment-title">Appointment</div>
-            <div class="appointment-calendar-box">
-                <div class="calendar-container">
-                    <div class="calendar-header">
-                        <span class="calendar-month">June 2025</span>
-                    </div>
-                    <table class="calendar-table">
-                        <thead>
-                            <tr>
-                                <th>Sun</th>
-                                <th>Mon</th>
-                                <th>Tue</th>
-                                <th>Wed</th>
-                                <th>Thu</th>
-                                <th>Fri</th>
-                                <th>Sat</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td class="calendar-muted">1</td>
-                                <td>2</td>
-                                <td>3</td>
-                                <td>4</td>
-                                <td>5</td>
-                                <td>6</td>
-                                <td>7</td>
-                            </tr>
-                            <tr>
-                                <td>8</td>
-                                <td>9</td>
-                                <td>10</td>
-                                <td>11</td>
-                                <td>12</td>
-                                <td>13</td>
-                                <td>14</td>
-                            </tr>
-                            <tr>
-                                <td>15</td>
-                                <td>16</td>
-                                <td>17</td>
-                                <td>18</td>
-                                <td>19</td>
-                                <td>20</td>
-                                <td>21</td>
-                            </tr>
-                            <tr>
-                                <td>22</td>
-                                <td>23</td>
-                                <td>24</td>
-                                <td>25</td>
-                                <td>26</td>
-                                <td>27</td>
-                                <td>28</td>
-                            </tr>
-                            <tr>
-                                <td>29</td>
-                                <td>30</td>
-                                <td class="calendar-muted"></td>
-                                <td class="calendar-muted"></td>
-                                <td class="calendar-muted"></td>
-                                <td class="calendar-muted"></td>
-                                <td class="calendar-muted"></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-            <a href="/appointment-time" class="appointment-next-btn" style="text-decoration:none;display:inline-block;">NEXT</a>
-        </div>
-    </div>
+<div class="appointment-container">
+    <div class="appointment-title">Choose Appointment</div>
+    <form th:action="@{/payment}" method="post">
+        <div class="appointment-label">Date</div>
+        <input type="date" name="appointmentDate" class="appointment-input" required>
+        <div class="appointment-label">Time</div>
+        <input type="time" name="appointmentTime" class="appointment-input" required>
+        <button type="submit" class="appointment-btn">Next</button>
+    </form>
+</div>
 </body>
 </html> 

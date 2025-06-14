@@ -1,25 +1,36 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="id" xmlns:th="http://www.thymeleaf.org">
 <head>
-  <meta charset="UTF-8">
-  <title>Register - Blade & Fade</title>
-  <link rel="stylesheet" th:href="@{/css/register.css}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - BladeNFade Barbershop</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/login.css">
 </head>
 <body>
-  <div class="container">
-    <form class="register-box" th:action="@{/register}" method="post">
-      <input type="text" name="name" placeholder="Name" required>
-      <input type="email" name="email" placeholder="email" required>
-      <input type="text" name="phone" placeholder="Phone Number" required>
-      <input type="password" name="password" placeholder="Password" required>
-      <input type="password" name="confirmPassword" placeholder="Confirm Password" required>
+    <div class="container">
+        <div class="logo">
+            <img src="/images/skull1.png" alt="Blade & Fade">
+        </div>
 
-      <button type="submit" class="confirm-btn">Confirm</button>
+        <div th:if="${error}" class="alert alert-danger" role="alert">
+            <span th:text="${error}">Error message</span>
+        </div>
+        <div th:if="${success}" class="alert alert-success" role="alert">
+            <span th:text="${success}">Success message</span>
+        </div>
 
-      <p class="login-text">
-        Already a member? <a th:href="@{/login}">Login</a>
-      </p>
-    </form>
-  </div>
+        <form class="login-box" th:action="@{/register}" th:object="${user}" method="post">
+            <input type="text" th:field="*{username}" placeholder="Username" required>
+            <input type="email" th:field="*{email}" placeholder="Email" required>
+            <input type="tel" th:field="*{phone}" placeholder="Phone Number" required>
+            <input type="password" th:field="*{password}" placeholder="Password" required>
+            <button type="submit" class="login-btn">Register</button>
+            <p class="register-text">
+                Already have an account? <a th:href="@{/login}">Login</a>
+            </p>
+        </form>
+    </div>
 </body>
 </html>

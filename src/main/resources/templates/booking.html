@@ -124,97 +124,103 @@
 <body>
     <div class="booking-container">
         <!-- Card 1 -->
-        <div class="booking-card">
+        <form class="booking-card" th:action="@{/appointment}" method="post" style="margin:0;">
             <div class="booking-skull">
                 <img src="/images/frame16.png" alt="Skull">
             </div>
             <div class="booking-content">
                 <div class="booking-name">Indra Farhan</div>
+                <input type="hidden" name="hairstylist" value="Indra Farhan" />
                 <div class="booking-choose">Choose Service</div>
                 <div class="booking-services">
                     <div class="booking-service">
                         <img src="/images/image 18 (Traced).png" alt="HairCut">
                         <label>HairCut</label>
-                        <input type="checkbox">
+                        <input type="checkbox" name="services" value="Haircut">
                     </div>
                     <div class="booking-service">
                         <img src="/images/image 17(Traced).png" alt="Shave">
                         <label>Shave</label>
-                        <input type="checkbox">
+                        <input type="checkbox" name="services" value="Shave">
                     </div>
                 </div>
-                <a href="/appointment" class="booking-next-btn" style="text-decoration:none;display:inline-block;">NEXT</a>
+                <button type="submit" class="booking-next-btn" style="text-decoration:none;display:inline-block;">NEXT</button>
             </div>
-        </div>
+        </form>
         <!-- Card 2 -->
-        <div class="booking-card">
+        <form class="booking-card" th:action="@{/appointment}" method="post" style="margin:0;">
             <div class="booking-skull">
                 <img src="/images/frame16.png" alt="Skull">
             </div>
             <div class="booking-content">
                 <div class="booking-name">Raffle Alghifari</div>
+                <input type="hidden" name="hairstylist" value="Raffle Alghifari" />
                 <div class="booking-choose">Choose Service</div>
                 <div class="booking-services">
                     <div class="booking-service">
                         <img src="/images/image 18 (Traced).png" alt="HairCut">
                         <label>HairCut</label>
-                        <input type="checkbox">
+                        <input type="checkbox" name="services" value="Haircut">
                     </div>
                     <div class="booking-service">
                         <img src="/images/Group 5.png" alt="Smoothing">
                         <label>Smoothing</label>
-                        <input type="checkbox">
+                        <input type="checkbox" name="services" value="Smoothing">
                     </div>
                 </div>
-                <a href="/appointment" class="booking-next-btn" style="text-decoration:none;display:inline-block;">NEXT</a>
+                <button type="submit" class="booking-next-btn" style="text-decoration:none;display:inline-block;">NEXT</button>
             </div>
-        </div>
+        </form>
         <!-- Card 3 -->
-        <div class="booking-card">
+        <form class="booking-card" th:action="@{/appointment}" method="post" style="margin:0;">
             <div class="booking-skull">
                 <img src="/images/frame16.png" alt="Skull">
             </div>
             <div class="booking-content">
-                <div class="booking-name">Indra Farhan</div>
+                <div class="booking-name">Reza Faishal</div>
+                <input type="hidden" name="hairstylist" value="Reza Faishal" />
                 <div class="booking-choose">Choose Service</div>
                 <div class="booking-services">
                     <div class="booking-service">
                         <img src="/images/image 18 (Traced).png" alt="HairCut">
                         <label>HairCut</label>
-                        <input type="checkbox">
+                        <input type="checkbox" name="services" value="Haircut">
                     </div>
                     <div class="booking-service">
                         <img src="/images/image 17(Traced).png" alt="Shave">
                         <label>Shave</label>
-                        <input type="checkbox">
+                        <input type="checkbox" name="services" value="Shave">
                     </div>
                 </div>
-                <a href="/appointment" class="booking-next-btn" style="text-decoration:none;display:inline-block;">NEXT</a>
+                <button type="submit" class="booking-next-btn" style="text-decoration:none;display:inline-block;">NEXT</button>
             </div>
-        </div>
+        </form>
         <!-- Card 4 -->
-        <div class="booking-card">
+        <form class="booking-card" th:action="@{/appointment}" method="post" style="margin:0;">
             <div class="booking-skull">
                 <img src="/images/frame16.png" alt="Skull">
             </div>
             <div class="booking-content">
-                <div class="booking-name">Atengkorak</div>
+                <div class="booking-name">hendyw</div>
+                <input type="hidden" name="hairstylist" value="hendyw" />
                 <div class="booking-choose">Choose Service</div>
                 <div class="booking-services">
                     <div class="booking-service">
                         <img src="/images/image 18 (Traced).png" alt="HairCut">
                         <label>HairCut</label>
-                        <input type="checkbox">
+                        <input type="checkbox" name="services" value="Haircut">
                     </div>
                     <div class="booking-service">
                         <img src="/images/Group 8.png" alt="Colouring">
                         <label>Colouring</label>
-                        <input type="checkbox">
+                        <input type="checkbox" name="services" value="Colouring">
                     </div>
                 </div>
-                <a href="/appointment" class="booking-next-btn" style="text-decoration:none;display:inline-block;">NEXT</a>
+                <button type="submit" class="booking-next-btn" style="text-decoration:none;display:inline-block;">NEXT</button>
             </div>
-        </div>
+        </form>
     </div>
+</body>
+</html> 
 </body>
 </html> 

@@ -1,187 +1,86 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Payment - Blade N Fade</title>
     <link rel="stylesheet" href="/css/index.css">
     <style>
-        body {
-            background: #18171a;
-        }
+        body { background: #18171a; color: #fff; }
         .payment-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-        }
-        .payment-card {
+            max-width: 420px;
+            margin: 60px auto;
             background: #18171a;
             border: 3px solid #fff;
             border-radius: 28px;
-            display: flex;
-            flex-direction: row;
-            min-width: 700px;
-            max-width: 900px;
-            min-height: 420px;
-            overflow: hidden;
+            padding: 36px 32px 32px 32px;
             box-shadow: 0 0 0 0 #000;
-        }
-        .payment-summary {
-            flex: 1;
-            border-right: 2px solid #fff;
-            padding: 36px 32px 32px 32px;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
-            align-items: flex-start;
-        }
-        .summary-title {
-            font-size: 28px;
-            font-weight: bold;
-            color: #fff;
-            margin-bottom: 24px;
-        }
-        .summary-row {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            color: #fff;
-            font-size: 16px;
-            margin-bottom: 10px;
-        }
-        .summary-icon {
-            font-size: 18px;
-        }
-        .summary-services {
-            font-size: 16px;
-            color: #fff;
-            margin-bottom: 18px;
-        }
-        .summary-subtotal-title {
-            font-size: 20px;
-            font-weight: bold;
-            color: #fff;
-            margin: 18px 0 10px 0;
-        }
-        .summary-subtotal-table {
-            width: 100%;
-            color: #fff;
-            font-size: 15px;
-            margin-bottom: 0;
-        }
-        .summary-subtotal-table td {
-            padding: 2px 0;
-        }
-        .summary-subtotal-table .label {
-            text-align: left;
-        }
-        .summary-subtotal-table .value {
-            text-align: right;
-            min-width: 80px;
-        }
-        .payment-section {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: flex-start;
-            padding: 36px 32px 32px 32px;
         }
         .payment-title {
             font-size: 28px;
             font-weight: bold;
-            color: #fff;
-            margin-bottom: 32px;
-        }
-        .payment-methods {
-            display: flex;
-            flex-direction: column;
-            gap: 22px;
-            width: 100%;
-            margin-bottom: 32px;
-        }
-        .payment-method-btn {
-            background: #fff;
-            color: #18171a;
-            border: none;
-            padding: 14px 0;
-            font-size: 26px;
-            font-weight: bold;
-            border-radius: 28px;
-            cursor: pointer;
-            width: 100%;
-            transition: background 0.3s, color 0.3s, transform 0.2s;
-            outline: none;
-        }
-        .payment-method-btn.selected, .payment-method-btn:active {
-            background: #b3b3b3;
+            margin-bottom: 18px;
             color: #fff;
         }
-        .payment-pay-btn {
-            background: #b3b3b3;
+        .payment-label {
+            font-size: 18px;
+            margin-bottom: 8px;
             color: #fff;
-            border: none;
-            padding: 12px 48px;
+        }
+        .payment-detail {
+            font-size: 18px;
+            margin-bottom: 12px;
+            color: #fff;
+        }
+        .payment-list {
+            margin-bottom: 18px;
+        }
+        .payment-list li {
+            font-size: 18px;
+            color: #fff;
+            margin-bottom: 4px;
+        }
+        .payment-total {
             font-size: 22px;
-            font-family: 'Brush Script MT', cursive, 'Pacifico', 'Dancing Script', 'Arial', sans-serif;
-            font-style: italic;
-            border-radius: 22px;
+            font-weight: bold;
+            margin-bottom: 18px;
+            color: #ffd700;
+        }
+        .payment-btn {
+            background: #b3b3b3;
+            color: #fff;
+            border: none;
+            padding: 10px 36px;
+            font-size: 20px;
+            border-radius: 16px;
             cursor: pointer;
             font-weight: bold;
-            box-shadow: none;
             transition: background 0.3s, color 0.3s, transform 0.2s;
             outline: none;
-            margin-top: 18px;
         }
-        .payment-pay-btn:hover {
+        .payment-btn:hover {
             background: #888;
             color: #fff;
             transform: translateY(-2px) scale(1.03);
         }
-        @media (max-width: 900px) {
-            .payment-card {
-                flex-direction: column;
-                min-width: 320px;
-                max-width: 98vw;
-            }
-            .payment-summary, .payment-section {
-                border-right: none;
-                border-bottom: 2px solid #fff;
-                padding: 24px 16px 16px 16px;
-            }
-            .payment-section {
-                border-bottom: none;
-            }
-        }
     </style>
 </head>
 <body>
-    <div class="payment-container">
-        <div class="payment-card">
-            <div class="payment-summary">
-                <div class="summary-title">Summary</div>
-                <div class="summary-row"><span class="summary-icon">📅</span> 11 June 2025</div>
-                <div class="summary-row"><span class="summary-icon">⏰</span> 07:00 PM</div>
-                <div class="summary-row"><span class="summary-icon">✂️</span> HairCut &amp; Colloring</div>
-                <div class="summary-subtotal-title">Sub Total</div>
-                <table class="summary-subtotal-table">
-                    <tr><td class="label">Hair Cut</td><td class="value">IDR. 75.000</td></tr>
-                    <tr><td class="label">Colloring</td><td class="value">IDR. 50.000</td></tr>
-                    <tr><td class="label">Discount</td><td class="value">IDR. -5.000</td></tr>
-                    <tr><td class="label">Fee</td><td class="value">IDR. 5.000</td></tr>
-                    <tr><td class="label"><b>Total</b></td><td class="value"><b>IDR. 125.000</b></td></tr>
-                </table>
-            </div>
-            <div class="payment-section">
-                <div class="payment-title">Payment</div>
-                <div class="payment-methods">
-                    <button class="payment-method-btn">BNI</button>
-                    <button class="payment-method-btn">BCA</button>
-                    <button class="payment-method-btn">CASH</button>
-                </div>
-                <a href="/payment-success" class="payment-pay-btn" style="text-decoration:none;display:inline-block;">Pay</a>
-            </div>
-        </div>
-    </div>
+<div class="payment-container">
+    <div class="payment-title">Payment</div>
+    <div class="payment-label">Hairstylist:</div>
+    <div class="payment-detail" th:text="${hairstylist}">Indra Farhan</div>
+    <div class="payment-label">Service(s):</div>
+    <ul class="payment-list">
+        <li th:each="s : ${services}" th:text="${s}">Haircut</li>
+    </ul>
+    <div class="payment-label">Date:</div>
+    <div class="payment-detail" th:text="${appointmentDate}">2025-06-15</div>
+    <div class="payment-label">Time:</div>
+    <div class="payment-detail" th:text="${appointmentTime}">14:00</div>
+    <div class="payment-total">Total: <span th:text="${total}">50000</span> IDR</div>
+    <form th:action="@{/payment-success}" method="post">
+        <button type="submit" class="payment-btn">Pay</button>
+    </form>
+</div>
 </body>
 </html> 

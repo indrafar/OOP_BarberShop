@@ -1,76 +1,79 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Pembayaran Berhasil - Blade N Fade</title>
+    <title>Payment Success - Blade N Fade</title>
     <link rel="stylesheet" href="/css/index.css">
-    <meta http-equiv="refresh" content="3;url=/index" />
     <style>
-        body {
-            background: #18171a;
-        }
+        body { background: #18171a; color: #fff; }
         .success-container {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
+            max-width: 420px;
+            margin: 60px auto;
+            background: #18171a;
+            border: 3px solid #fff;
+            border-radius: 28px;
+            padding: 36px 32px 32px 32px;
+            box-shadow: 0 0 0 0 #000;
+            text-align: center;
         }
         .success-checkmark {
-            width: 120px;
-            height: 120px;
+            width: 100px;
+            height: 100px;
             border-radius: 50%;
             background: #e6f9ea;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 32px;
+            margin: 0 auto 24px auto;
         }
         .success-checkmark svg {
-            width: 70px;
-            height: 70px;
+            width: 60px;
+            height: 60px;
             display: block;
         }
-        .success-text {
-            color: #2ecc40;
-            font-size: 32px;
+        .success-title {
+            font-size: 28px;
             font-weight: bold;
-            text-align: center;
-            margin-bottom: 12px;
-            font-family: 'Arial', sans-serif;
+            margin-bottom: 18px;
+            color: #ffd700;
         }
-        .success-redirect-note {
-            color: #aaa;
-            font-size: 16px;
-            text-align: center;
-            margin-top: 8px;
-            font-family: 'Arial', sans-serif;
+        .success-msg {
+            font-size: 20px;
+            margin-bottom: 24px;
+            color: #fff;
+        }
+        .success-btn {
+            background: #b3b3b3;
+            color: #fff;
+            border: none;
+            padding: 10px 36px;
+            font-size: 20px;
+            border-radius: 16px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background 0.3s, color 0.3s, transform 0.2s;
+            outline: none;
+        }
+        .success-btn:hover {
+            background: #888;
+            color: #fff;
+            transform: translateY(-2px) scale(1.03);
         }
     </style>
 </head>
 <body>
-    <div class="success-container">
-        <div class="success-checkmark">
-            <svg viewBox="0 0 52 52">
-                <circle cx="26" cy="26" r="25" fill="none" stroke="#2ecc40" stroke-width="4"/>
-                <path fill="none" stroke="#2ecc40" stroke-width="5" d="M14 27 l8 8 l16 -16"/>
-            </svg>
-        </div>
-        <div class="success-text">Pembayaran Berhasil</div>
-        <div class="success-redirect-note">Anda akan diarahkan ke halaman utama dalam <span id="countdown">3</span> detik...</div>
+<div class="success-container">
+    <div class="success-checkmark">
+        <svg viewBox="0 0 52 52">
+            <circle cx="26" cy="26" r="25" fill="none" stroke="#2ecc40" stroke-width="4"/>
+            <path fill="none" stroke="#2ecc40" stroke-width="5" d="M14 27 l8 8 l16 -16"/>
+        </svg>
     </div>
-    <script>
-      let seconds = 3;
-      const countdownEl = document.getElementById('countdown');
-      const interval = setInterval(() => {
-        seconds--;
-        if (seconds > 0) {
-          countdownEl.textContent = seconds;
-        } else {
-          clearInterval(interval);
-          window.location.href = '/index';
-        }
-      }, 1000);
-    </script>
+    <div class="success-title">Payment Success!</div>
+    <div class="success-msg">Your payment was successful.<br>You can now view your receipt.</div>
+    <form th:action="@{/receipt}" method="post">
+        <button type="submit" class="success-btn">View Receipt</button>
+    </form>
+</div>
 </body>
 </html> 

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Receipt - Blade N Fade</title>
+    <link rel="stylesheet" href="/css/index.css">
+    <style>
+        body { background: #18171a; color: #fff; }
+        .receipt-container {
+            max-width: 420px;
+            margin: 60px auto;
+            background: #18171a;
+            border: 3px solid #fff;
+            border-radius: 28px;
+            padding: 36px 32px 32px 32px;
+            box-shadow: 0 0 0 0 #000;
+        }
+        .receipt-title {
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 18px;
+            color: #fff;
+        }
+        .receipt-label {
+            font-size: 18px;
+            margin-bottom: 8px;
+            color: #fff;
+        }
+        .receipt-detail {
+            font-size: 18px;
+            margin-bottom: 12px;
+            color: #fff;
+        }
+        .receipt-list {
+            margin-bottom: 18px;
+        }
+        .receipt-list li {
+            font-size: 18px;
+            color: #fff;
+            margin-bottom: 4px;
+        }
+        .receipt-breakdown {
+            margin-bottom: 18px;
+        }
+        .receipt-breakdown-row {
+            display: flex;
+            justify-content: space-between;
+            font-size: 18px;
+            margin-bottom: 4px;
+        }
+        .receipt-total {
+            font-size: 22px;
+            font-weight: bold;
+            margin-bottom: 18px;
+            color: #ffd700;
+            text-align: right;
+        }
+        .back-btn {
+            background: #b3b3b3;
+            color: #fff;
+            border: none;
+            padding: 10px 36px;
+            font-size: 20px;
+            border-radius: 16px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background 0.3s, color 0.3s, transform 0.2s;
+            outline: none;
+            display: block;
+            margin: 0 auto;
+        }
+        .back-btn:hover {
+            background: #888;
+            color: #fff;
+            transform: translateY(-2px) scale(1.03);
+        }
+    </style>
+</head>
+<body>
+<div class="receipt-container">
+    <div class="receipt-title">Receipt</div>
+    <div class="receipt-label">Hairstylist:</div>
+    <div class="receipt-detail" th:text="${hairstylist}">Indra Farhan</div>
+    <div class="receipt-label">Service(s):</div>
+    <ul class="receipt-list">
+        <li th:each="s : ${services}" th:text="${s}">Haircut</li>
+    </ul>
+    <div class="receipt-label">Date:</div>
+    <div class="receipt-detail" th:text="${appointmentDate}">2025-06-15</div>
+    <div class="receipt-label">Time:</div>
+    <div class="receipt-detail" th:text="${appointmentTime}">14:00</div>
+    <div class="receipt-label">Breakdown:</div>
+    <div class="receipt-breakdown">
+        <div class="receipt-breakdown-row" th:each="sd : ${serviceDetails}">
+            <span th:text="${sd.name}">Haircut</span>
+            <span th:text="${#numbers.formatInteger(sd.price, 0, 'COMMA')} + ' IDR'">30,000 IDR</span>
+        </div>
+        <div class="receipt-breakdown-row">
+            <span>Stylist Fee</span>
+            <span th:text="${#numbers.formatInteger(fee, 0, 'COMMA')} + ' IDR'">10,000 IDR</span>
+        </div>
+    </div>
+    <div class="receipt-total">Total: <span th:text="${#numbers.formatInteger(total, 0, 'COMMA')}">50,000</span> IDR</div>
+    <a href="/index" class="back-btn">Back to Homepage</a>
+</div>
+</body>
+</html> 
