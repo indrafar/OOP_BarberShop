@@ -62,25 +62,50 @@
             color: #fff;
             transform: translateY(-2px) scale(1.03);
         }
+        @media (max-width: 900px) {
+            .payment-card {
+                flex-direction: column;
+                min-width: 320px;
+                max-width: 98vw;
+            }
+            .payment-summary, .payment-section {
+                border-right: none;
+                border-bottom: 2px solid #fff;
+                padding: 24px 16px 16px 16px;
+            }
+            .payment-section {
+                border-bottom: none;
+            }
+        }
     </style>
 </head>
 <body>
-<div class="payment-container">
-    <div class="payment-title">Payment</div>
-    <div class="payment-label">Hairstylist:</div>
-    <div class="payment-detail" th:text="${hairstylist}">Indra Farhan</div>
-    <div class="payment-label">Service(s):</div>
-    <ul class="payment-list">
-        <li th:each="s : ${services}" th:text="${s}">Haircut</li>
-    </ul>
-    <div class="payment-label">Date:</div>
-    <div class="payment-detail" th:text="${appointmentDate}">2025-06-15</div>
-    <div class="payment-label">Time:</div>
-    <div class="payment-detail" th:text="${appointmentTime}">14:00</div>
-    <div class="payment-total">Total: <span th:text="${total}">50000</span> IDR</div>
-    <form th:action="@{/payment-success}" method="post">
-        <button type="submit" class="payment-btn">Pay</button>
-    </form>
-</div>
+    <div class="payment-container">
+        <div class="payment-card">
+            <div class="payment-summary">
+                <div class="summary-title">Summary</div>
+                <div class="summary-row"><span class="summary-icon">📅</span> 11 June 2025</div>
+                <div class="summary-row"><span class="summary-icon">⏰</span> 07:00 PM</div>
+                <div class="summary-row"><span class="summary-icon">✂️</span> HairCut &amp; Colloring</div>
+                <div class="summary-subtotal-title">Sub Total</div>
+                <table class="summary-subtotal-table">
+                    <tr><td class="label">Hair Cut</td><td class="value">IDR. 75.000</td></tr>
+                    <tr><td class="label">Colloring</td><td class="value">IDR. 50.000</td></tr>
+                    <tr><td class="label">Discount</td><td class="value">IDR. -5.000</td></tr>
+                    <tr><td class="label">Fee</td><td class="value">IDR. 5.000</td></tr>
+                    <tr><td class="label"><b>Total</b></td><td class="value"><b>IDR. 125.000</b></td></tr>
+                </table>
+            </div>
+            <div class="payment-section">
+                <div class="payment-title">Payment</div>
+                <div class="payment-methods">
+                    <button class="payment-method-btn">BNI</button>
+                    <button class="payment-method-btn">BCA</button>
+                    <button class="payment-method-btn">CASH</button>
+                </div>
+                <a href="/payment-success" class="payment-pay-btn" style="text-decoration:none;display:inline-block;">Pay</a>
+            </div>
+        </div>
+    </div>
 </body>
 </html> 
