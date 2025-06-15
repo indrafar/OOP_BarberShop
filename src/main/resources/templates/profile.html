@@ -388,12 +388,12 @@
                     <form th:action="@{/profile/update}" th:object="${user}" method="post">
                         <div class="row">
                             <div class="col-md-6 mb-3">
-                                <label for="phoneNumber" class="form-label">Nomor Telepon</label>
-                                <input type="tel" class="form-control" id="phoneNumber" th:field="*{phoneNumber}" required>
+                                <label for="phone" class="form-label">Nomor Telepon</label>
+                                <input type="tel" class="form-control" id="phone" th:field="*{phone}" required>
                             </div>
                             <div class="col-md-6 mb-3">
                                 <label for="username" class="form-label">Username</label>
-                                <input type="text" class="form-control" id="username" th:field="*{username}" required>
+                                <input type="text" class="form-control" id="username" name="username" th:value="${user.username}" required>
                             </div>
                         </div>
                         <div class="row">

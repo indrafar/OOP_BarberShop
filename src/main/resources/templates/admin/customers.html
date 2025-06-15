@@ -56,35 +56,59 @@
 
             <!-- Main Content -->
             <div class="col-md-9 col-lg-10 main-content">
-                <h2 class="mb-4">Customers</h2>
-
-                <div class="card">
-                    <div class="card-body">
-                        <div class="table-responsive">
-                            <table class="table">
-                                <thead>
-                                    <tr>
-                                        <th>ID</th>
-                                        <th>Username</th>
-                                        <th>Email</th>
-                                        <th>Phone</th>
-                                        <th>Total Transactions</th>
-                                        <th>Last Transaction</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr th:each="user : ${users}" th:if="${user.role} == 'USER'">
-                                        <td th:text="${user.id}">1</td>
-                                        <td th:text="${user.username}">Username</td>
-                                        <td th:text="${user.email}">Email</td>
-                                        <td th:text="${user.phone}">Phone</td>
-                                        <td th:text="${user.transactions.size()}">0</td>
-                                        <td th:text="${user.transactions.size() > 0 ? #temporals.format(user.transactions[0].createdAt, 'dd/MM/yyyy HH:mm') : '-'}">-</td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                <div class="container mt-4">
+                    <div class="row mb-3">
+                        <div class="col">
+                            <h2>Customer Management</h2>
+                        </div>
+                        <div class="col text-right">
+                            <a th:href="@{/admin}" class="btn btn-secondary">Dashboard</a>
+                            <a th:href="@{/admin/customers/add}" class="btn btn-primary">
+                                <i class="fas fa-user-plus me-2"></i>Add New Customer
+                            </a>
                         </div>
                     </div>
+                    
+                    <!-- Tambahkan di bagian atas tabel atau di tempat yang sesuai -->
+                    <div th:if="${successMessage}" class="alert alert-success alert-dismissible fade show" role="alert">
+                        <span th:text="${successMessage}"></span>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                    <div th:if="${errorMessage}" class="alert alert-danger alert-dismissible fade show" role="alert">
+                        <span th:text="${errorMessage}"></span>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                    
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Username</th>
+                                <th>Email</th>
+                                <th>Phone</th>
+                                <th>Role</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr th:each="user : ${users}">
+                                <td th:text="${user.id}"></td>
+                                <td th:text="${user.username}"></td>
+                                <td th:text="${user.email}"></td>
+                                <td th:text="${user.phone}"></td>
+                                <td th:text="${user.role}"></td>
+                                <td>
+                                    <a th:href="@{'/admin/customers/' + ${user.id} + '/details'}" class="btn btn-info btn-sm">Details</a>
+                                    <a th:href="@{'/admin/customers/' + ${user.id} + '/edit'}" class="btn btn-warning btn-sm">Edit</a>
+                                    
+                                    <!-- Untuk tombol Delete -->
+                                    <form th:action="@{/admin/customers/{id}/delete(id=${user.id})}" method="post" style="display:inline;">
+                                        <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this customer?')">Delete</button>
+                                    </form>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
@@ -92,4 +116,4 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
 </body>
-</html> 
+</html>
