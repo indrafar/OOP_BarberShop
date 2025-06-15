@@ -10,6 +10,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.userdetails.UserDetails;
+
+import java.util.Optional;
 
 @Controller
 public class UserController {
@@ -21,6 +26,36 @@ public class UserController {
     public UserController(UserRepository userRepository, PasswordEncoder passwordEncoder) {
         this.userRepository = userRepository;
         this.passwordEncoder = passwordEncoder;
+    }
+
+    @GetMapping("/profile")
+    public String showProfile(@AuthenticationPrincipal UserDetails userDetails, Model model) {
+        if (userDetails == null) {
+            return "redirect:/login";
+        }
+
+        Optional<User> optionalUser = userRepository.findByUsername(userDetails.getUsername());
+        if (optionalUser.isEmpty()) {
+            return "redirect:/login";
+        }
+
+        User user = optionalUser.get();
+        model.addAttribute("user", user);
+        return "profile";
+    }
+
+    @PostMapping("/profile/update")
+    public String updateProfile(@ModelAttribute("user") User updatedUser) {
+        // Ambil user lama dari database
+        User existingUser = userRepository.findById(updatedUser.getId())
+            .orElseThrow(() -> new RuntimeException("User not found"));
+
+        // Simpan field yang tidak diubah (password)
+        updatedUser.setPassword(existingUser.getPassword());
+
+        // Simpan update
+        userRepository.save(updatedUser);
+        return "redirect:/profile";
     }
 
     @GetMapping("/login")
